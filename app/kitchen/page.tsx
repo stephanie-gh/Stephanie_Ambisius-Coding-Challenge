@@ -78,25 +78,14 @@ export default function Home() {
   return (
     <main>
       <div className="px-6 py-4 mt-4 border-solid border-2 border-gray-200 rounded-md min-h-[300px] max-w-[1100px]">
-        <div className="flex flex-wrap gap-x-6">
-          {/* {kitchenOrders.map((item, index) => (
-            <div key={index}>
-              <h2 className="mb-2 text-lg font-semibold text-gray-900">Table {item.table}</h2>
-              <ul className="max-w-md space-y-1 text-gray-500 list-inside">
-                <li className="list-disc"><span className="font-bold">({item.quantity})</span> {item.menuName}</li>
-              </ul>
-            </div>
-          ))} */}
-
-
+        <div className="grid gap-y-6">
           {Object.keys(kitchenOrders).map((tableNumber) => (
-            <div key={tableNumber}>
+            <div key={tableNumber} className="border border-sky-300 px-4 py-4">
               <h2 className="mb-2 text-lg font-semibold text-gray-900">Table {tableNumber}</h2>
               <div className="max-w-md space-y-1 text-gray-500">
                 {kitchenOrders[tableNumber].map((order) => (
                   <div key={order.orderId}>
                     <span className="font-bold">{order.quantity}x</span> {order.menuName}
-                    <div>-----------------------------------------</div>
                   </div>
                 ))}
               </div>
