@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [menu, setMenu] = useState([]);
-  const [buttonValue, setButtonValue] = useState('');
+  const [buttonValue, setButtonValue] = useState('1');
   const [menuValue, setMenuValue] = useState('');
   const [quantityValue, setQuantityValue] = useState('');
   const [lastIndex, setLastIndex] = useState('');
