@@ -36,14 +36,16 @@ export default function Home() {
           for (const cIndex in data) {
             total += parsedData[index][cIndex].total;
           }
-          setOrder(data);
-          setSelectedTable(index);
-          setTotalPayment(total);
-          setShowNotification(true);
-        } else {
-          setOrder([]);
-          setSelectedTable('');
-          setTotalPayment(0);
+          if (!data) {
+            setOrder([]);
+            setSelectedTable('');
+            setTotalPayment(0);
+          } else {
+            setOrder(data);
+            setSelectedTable(index);
+            setTotalPayment(total);
+            setShowNotification(true);
+          }
         }
       }
     }
@@ -64,6 +66,7 @@ export default function Home() {
       delete receipt[index];
       localStorage.setItem('receipt', JSON.stringify(receipt));
       setOrder([]);
+      setSelectedTable('');
       setTotalPayment(0);
     }
     return order;

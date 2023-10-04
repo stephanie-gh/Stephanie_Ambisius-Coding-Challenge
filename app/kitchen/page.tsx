@@ -36,7 +36,7 @@ export default function Home() {
   }
 
   const KitchenOrders = () => {
-    const orderArray = JSON.parse(localStorage.getItem('order'));
+    const orderArray = JSON.parse(localStorage.getItem('order')) || [];
     const menuArray = JSON.parse(localStorage.getItem('menus'));
     useEffect(() => {
       const newKitchenOrders = orderArray.reduce((result, order) => {
@@ -58,7 +58,7 @@ export default function Home() {
             tableNumber: order.table,
             quantity: order.quantity,
             price: menuItem.price,
-            total: (menuItem.price*order.quantity)
+            total: (menuItem.price * order.quantity)
           };
 
           // Push the kitchen order to the table's array
